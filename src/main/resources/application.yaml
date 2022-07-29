@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/arppl4_spring_security?serverTimezone=Europe/Warsaw&createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+ # Tworzenie usera defaultowego
+default:
+  roles:
+    - ADMIN
+    - USER
+    - MODERATOR
+  users:
+    - username: admin
+      password: nimda
+      roles: ADMIN, USER, MODERATOR
+    - username: user
+      password: user
+      roles: USER
+
+
+#
+# @Slf4j           = logi, wypisywanie do konsoli zdarzen
+# @RequestMapping  = sluzy do definiowania sciezki ktora bedzie prefixem adresu wszystkich endpointow
+# @RequestBody     = uzywamy dtej adnotacji do oznaczenia obiektu ktory bedzie parametrem zapytania (requestu)
+# @PathVariable    = uzywamy adnotacji do oznaczenia zmiennej, ktora bedzie  wpisana w sciezke adresu
+#          Przyklad: /api/student/{id}/details
+# @RequestParam    = uzywamy adnotacji do oznaczenia zmiennej, ktora bedzie przekazana jako parametr w sciezce
+#                     PArametry przekazujemy po zakonczeniu adresu, po znaku zapytania ('/api/path?parametr=x')
+#          Przyklad: /api/student/details?id=5
+#
+# @RestController = adnotacja stosowana nad klasa, w któej chcemy, aby zostal stworzony @Bean.
+#                 = unmozliwia interackje z aplikacja z zewnatrz, poprzez adresowanie ednpointów (mapping)
+#                 = mappingi konsumuja i produkuja dane serializowane do posataci JSON.
+#
+# @Service        = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
+#                 = jest wskazaniem dla nas miejsca implementacji logiki biznesowej.
+#
+# @Component       = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
+#                  = jest adnotacja(typem), po ktrej dziedzicza pozostale adnotacje komponentowe,
+#                  = czyli: Service, Controller, RestController, Repository, Configuration
+#
+# @Repository     = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
+#                 = Data Access Object - reprezentuje obiekt, ktorego uzywamy w warstwach logiki biznesowej
+#                 = Jest wskazaniem dla nas miejsca, w którym znajduja sie metody do manipulacji/pobierania
+#                   zarzadzania obiektami w bazie danych
+#
+# @Configuration  = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
+#                 = klasa, ktora zawiera configuracje w postaci obiektu (@Bean)
+#                 = Jest inicjalizowana jednorazowo
+
+
+# Budowa adresu URL:
+# http://HOST:PORT/ctx
+# portów jest 65535
+# ka?da aplikacja zajmuje osobny port, by móc przyjmowa? po??czenia
+#
