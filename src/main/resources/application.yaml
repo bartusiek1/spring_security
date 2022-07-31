@@ -6,6 +6,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  security:
+    user:
+      name: user
 
  # Tworzenie usera defaultowego
 default:
@@ -32,20 +35,20 @@ default:
 #                     PArametry przekazujemy po zakonczeniu adresu, po znaku zapytania ('/api/path?parametr=x')
 #          Przyklad: /api/student/details?id=5
 #
-# @RestController = adnotacja stosowana nad klasa, w któej chcemy, aby zostal stworzony @Bean.
-#                 = unmozliwia interackje z aplikacja z zewnatrz, poprzez adresowanie ednpointów (mapping)
+# @RestController = adnotacja stosowana nad klasa, w ktï¿½ej chcemy, aby zostal stworzony @Bean.
+#                 = unmozliwia interackje z aplikacja z zewnatrz, poprzez adresowanie ednpointï¿½w (mapping)
 #                 = mappingi konsumuja i produkuja dane serializowane do posataci JSON.
 #
 # @Service        = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
 #                 = jest wskazaniem dla nas miejsca implementacji logiki biznesowej.
 #
 # @Component       = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
-#                  = jest adnotacja(typem), po ktrej dziedzicza pozostale adnotacje komponentowe,
+#                  = jest adnotacja(typem), po ktorej dziedzicza pozostale adnotacje komponentowe,
 #                  = czyli: Service, Controller, RestController, Repository, Configuration
 #
 # @Repository     = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
 #                 = Data Access Object - reprezentuje obiekt, ktorego uzywamy w warstwach logiki biznesowej
-#                 = Jest wskazaniem dla nas miejsca, w którym znajduja sie metody do manipulacji/pobierania
+#                 = Jest wskazaniem dla nas miejsca, w ktorym znajduja sie metody do manipulacji/pobierania
 #                   zarzadzania obiektami w bazie danych
 #
 # @Configuration  = adnotacja stosoweana nad klas? , w ktorej chcemy anby zostal stworzony @Bean.
@@ -55,6 +58,6 @@ default:
 
 # Budowa adresu URL:
 # http://HOST:PORT/ctx
-# portów jest 65535
-# ka?da aplikacja zajmuje osobny port, by móc przyjmowa? po??czenia
+# portow jest 65535
+# kazda aplikacja zajmuje osobny port, by moc przyjmowac polaczenia
 #
