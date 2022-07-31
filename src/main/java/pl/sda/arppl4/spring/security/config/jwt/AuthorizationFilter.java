@@ -29,7 +29,7 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
 
        String header = request.getHeader(SecurityConstants.HEADER_AUTH);
 
-       if (header.startsWith(SecurityConstants.HEADER_AUTH_BEARER)) {
+       if (header != null && header.startsWith(SecurityConstants.HEADER_AUTH_BEARER)) {
            String[] headerParts = header.split(":");
            if (headerParts.length == 2) {
                String headerToken = headerParts[1];
