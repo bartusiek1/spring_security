@@ -83,7 +83,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         response.addHeader(SecurityConstants.HEADER_EXPIRATION, String.valueOf(Timestamp.valueOf(LocalDateTime.now().plusDays(10))));
         response.addHeader(SecurityConstants.HEADER_AUTH, SecurityConstants.HEADER_AUTH_BEARER + token);
         response.addHeader(SecurityConstants.HEADER_ROLES, String.valueOf(applicationUser.getRoles()));
-        response.setStatus(HttpStatus.I_AM_A_TEAPOT.value());
+        response.addHeader("Access-Control-Expose-Headers", SecurityConstants.HEADER_ROLES + "," + SecurityConstants.HEADER_AUTH + "," + SecurityConstants.HEADER_EXPIRATION);
+   //   response.setStatus(HttpStatus.I_AM_A_TEAPOT.value());
     }
 
     @Override

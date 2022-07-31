@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // wyłącz csrf (cross site request forgery - edytowanie formularza i nanoszenia w nim zmian z pozycji użytkownika)
                 .csrf().disable()
                 // wyłącz cross origin resource sharing
-                .cors().disable()
+                .cors()
+                .and()
                 // dlaej konfigurujemy autoryzację requestów
                 .authorizeRequests()
                 // przepuść każdy rewuest metodą GET na /api/test
