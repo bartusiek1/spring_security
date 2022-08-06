@@ -53,7 +53,7 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         return new UsernamePasswordAuthenticationToken(
                 username, null, Arrays.asList(roles.split(SecurityConstants.ROLES_SEPARATOR))
                 .stream()
-                .map(s -> new SimpleGrantedAuthority(s))
+                .map(s -> new SimpleGrantedAuthority("ROLE_"+s))
                 .collect(Collectors.toList())
         );
     }
